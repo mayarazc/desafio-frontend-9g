@@ -1,23 +1,15 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Inicio from "./paginas/Inicio/Inicio";
+import DescricaoApp from "./paginas/DescricaoApp/DescricaoApp";
 
 function App() {
-  const vetDadosAPI = [];
-
-  const fetchApps = () => {
-    const url = `https://us-central1-dev-test-395900.cloudfunctions.net/apps-9g/apps`;
-    fetch(url)
-      .then((response) => response.json())
-      .then((response) => vetDadosAPI.push(response));
-  }
-
-  fetchApps();
 
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Inicio dadosAPI={vetDadosAPI}/>}/>
+        <Route path="/" element={<Inicio/>}/>
+        <Route path="apps/:urlID" element={<DescricaoApp/>}/>
       </Routes>
     </BrowserRouter>
   )
