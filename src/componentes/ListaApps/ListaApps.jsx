@@ -1,15 +1,11 @@
 import Aplicativo from "../Aplicativo/Aplicativo";
 import styles from "./ListaApps.module.css";
 
-import { vetApps } from "../../API";
-
-function ListaApps() {
+function ListaApps(props) {
   return (
     <div className={styles.listaApps}>
-      {vetApps.map((app) => {
-         return <Aplicativo app={app}
-            key={app.id}
-          />
+      {props.vetApps.map((app) => {
+        return <Aplicativo app={app} key={app.id} />;
       })}
     </div>
   );
