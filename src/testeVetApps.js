@@ -1,3 +1,5 @@
+/* Vetor com mais de 3 itens criado para testar o funcionamento do carrossel */
+
 export const vetApps = [
   {
     id: "savepay",

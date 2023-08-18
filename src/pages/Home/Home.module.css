@@ -1,4 +1,4 @@
-.inicio {
+.home {
   width: 100vw;
   height: 100vh;
   background-color: #d6d6d6;
@@ -13,19 +13,20 @@
   align-items: center;
 }
 
-.carrosselContainer {
+.carouselContainer {
   display: flex;
   align-items: center;
-  width: 50%;
+  width: 60%;
 }
 
-.carrossel {
+.carousel {
   overflow-x: hidden;
   scroll-behavior: smooth;
   flex: 1;
+  margin: 0 10px;
 }
 
-.seta {
+.arrow {
   background: none;
   border: none;
   cursor: pointer;

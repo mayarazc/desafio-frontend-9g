@@ -1,10 +1,7 @@
+import Home from "./pages/AppData/AppData";
+import AppData from "./pages/AppData/AppData";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
-
-import Inicio from "./paginas/Inicio/Inicio";
-import DadosAplicativo from "./paginas/DescricaoApp/DadosAplicativo";
-
-import { vetApps } from "./testeVetApps";
 
 function App() {
   const [dataApps, setDataApps] = useState([]);
@@ -23,6 +20,7 @@ function App() {
         const materialsResponse = await fetch(materialsUrl);
         const materialsData = await materialsResponse.json();
         setDataMaterials(materialsData);
+
       } catch (error) {
         console.log("Request error: " + error);
       }
@@ -34,13 +32,8 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Inicio aplicativos={dataApps} />} />
-        <Route
-          path="apps/:urlID"
-          element={
-            <DadosAplicativo aplicativos={dataApps} appMaterial={dataMaterials} />
-          }
-        />
+        <Route path="/" element={<Home apps={dataApps} />} />
+        <Route path="apps/:urlID" element={<AppData app={dataApps} appMaterial={dataMaterials} />}/>
       </Routes>
     </BrowserRouter>
   );

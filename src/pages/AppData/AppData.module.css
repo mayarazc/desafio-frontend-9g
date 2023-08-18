@@ -1,0 +1,45 @@
+.appData {
+    max-width: 100vw;
+    min-height: 100vh; 
+    background-color: #d6d6d6;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .detailedApp {
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    text-align: justify;
+    margin-top: 15px;
+  }
+  
+  .detailedApp img {
+    width: 5rem;
+    border-radius: 50%;
+  }
+  
+  .detailedApp .infoApp h1 {
+    margin-bottom: 50px;
+  }
+  
+  .materials{
+    margin: 15px 0;
+    border: 1px solid #000;
+    border-radius: 8px;
+    padding: 5px 10px;
+  }
+  
+  .backArrow {
+    margin-top: 50px;
+    font-size: 3rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
