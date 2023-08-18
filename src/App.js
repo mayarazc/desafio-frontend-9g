@@ -1,5 +1,5 @@
-import Home from "./pages/AppData/AppData";
 import AppData from "./pages/AppData/AppData";
+import Home from "./pages/Home/Home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 
@@ -20,7 +20,7 @@ function App() {
         const materialsResponse = await fetch(materialsUrl);
         const materialsData = await materialsResponse.json();
         setDataMaterials(materialsData);
-
+        
       } catch (error) {
         console.log("Request error: " + error);
       }
@@ -33,7 +33,10 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home apps={dataApps} />} />
-        <Route path="apps/:urlID" element={<AppData app={dataApps} appMaterial={dataMaterials} />}/>
+        <Route
+          path="apps/:urlID"
+          element={<AppData app={dataApps} appMaterial={dataMaterials} />}
+        />
       </Routes>
     </BrowserRouter>
   );

@@ -1,8 +1,8 @@
 import styles from "./Home.module.css";
-import Logo from "../../components/Logo/Logo";
 import AppList from "../../components/AppList/AppList";
-import { useRef } from "react";
+import Logo from "../../components/Logo/Logo";
 import { BsArrowRightCircle, BsArrowLeftCircle } from "react-icons/bs";
+import { useRef } from "react";
 
 function Home(props) {
   const carousel = useRef(null);
@@ -16,8 +16,8 @@ function Home(props) {
 
   const handleClickRight = (e) => {
     e.preventDefault();
-    /* Calcula o quanto o componente ListaApps (ref carousel) deve 
-    mover para a direita*/
+    /* Calcula que componente ListaApps (ref carousel) deve 
+    mover para direita metade do seu comprimento */
     carousel.current.scrollLeft -= carousel.current.offsetWidth / 2;
   };
 
@@ -25,28 +25,28 @@ function Home(props) {
     <div className={styles.home}>
       <div className={styles.container}>
         <Logo />
-    
-        { /* Caso o vetor de apps seja > 3 renderiza o componente 
-        porém com o diferencial do carousel e seta para scroll  */
+        {
+          /* Caso o vetor de apps seja > 3 renderiza o componente 
+        porém com o diferencial do carrossel e seta para scroll  */
 
-        props.apps.length <= 3 ? (<AppList vetApps={props.apps} />) : 
-        (
-          <div className={styles.carouselContainer}>
+          props.apps.length <= 3 ? (
+            <AppList appsArr={props.apps} />
+          ) : (
+            <div className={styles.carouselContainer}>
+              <button onClick={handleClickRight} className={styles.arrow}>
+                <BsArrowLeftCircle />
+              </button>
 
-            <button onClick={handleClickRight} className={styles.arrow}>
-              <BsArrowLeftCircle />
-            </button>
+              <div className={styles.carousel} ref={carousel}>
+                <AppList appsArr={props.apps} />
+              </div>
 
-            <div className={styles.carousel} ref={carousel}>
-              <AppList vetApps={props.apps}/>
+              <button onClick={handleClickLeft} className={styles.arrow}>
+                <BsArrowRightCircle />
+              </button>
             </div>
-
-            <button onClick={handleClickLeft} className={styles.arrow}>
-              <BsArrowRightCircle />
-            </button>
-
-          </div>
-        )}
+          )
+        }
       </div>
     </div>
   );
