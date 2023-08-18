@@ -1,6 +1,7 @@
 # Desafio Front-End 9g 
 
 O desafio requer que seja construída uma lista de apps em React ou Remix que leia os dados de uma API e apresente-os conforme os layouts disponibilizados.
+**Deploy:** https://desafio-frontend-9g.vercel.app/
 
 # Requisitos
 
